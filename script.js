@@ -1,591 +1,382 @@
-/* =========================================================
-   MOBILE & ENTERPRISE PLATFORMS
-   PRESENTATION CONTROLLER
-========================================================= */
+/* =========================================
+   PLATFORMVERSE PRESENTATION
+========================================= */
+
+const navButtons =
+    document.querySelectorAll(".nav-btn");
+
+const pages =
+    document.querySelectorAll(".page");
+
+const overlay =
+    document.getElementById("transitionOverlay");
+
+const transitionTitle =
+    document.getElementById("transitionTitle");
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navigation =
+    document.getElementById("navigation");
 
 
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================
+   PAGE TITLES
+========================================= */
+
+const pageTitles = {
+
+    home: "Home",
+
+    mobile: "Mobile Platforms",
+
+    enterprise: "Enterprise Platforms",
+
+    comparison: "Platform Comparison",
+
+    summary: "Presentation Summary"
+
+};
 
 
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
+/* =========================================
+   CHANGE PAGE
+========================================= */
 
-    const slides =
-        Array.from(document.querySelectorAll(".slide"));
+function changePage(pageName) {
 
-    const nextBtn =
-        document.getElementById("nextBtn");
-
-    const prevBtn =
-        document.getElementById("prevBtn");
-
-    const dotsContainer =
-        document.getElementById("dots");
-
-    const currentSlide =
-        document.getElementById("currentSlide");
-
-    const totalSlides =
-        document.getElementById("totalSlides");
-
-    const progressBar =
-        document.getElementById("progressBar");
-
-    const transitionScreen =
-        document.getElementById("transitionScreen");
-
-    const transitionNumber =
-        document.getElementById("transitionNumber");
-
-    const transitionTitle =
-        document.getElementById("transitionTitle");
-
-    const restartBtn =
-        document.getElementById("restartBtn");
+    if (!document.getElementById(pageName)) {
+        return;
+    }
 
 
-    /* =====================================================
-       VARIABLES
-    ===================================================== */
+    /* SHOW POPUP */
 
-    let currentIndex = 0;
+    transitionTitle.textContent =
+        pageTitles[pageName] || "Loading...";
 
-    let isAnimating = false;
-
-    let touchStartX = 0;
-
-    let touchEndX = 0;
+    overlay.classList.add("show");
 
 
-    /* =====================================================
-       TOTAL SLIDES
-    ===================================================== */
+    /* CLOSE MOBILE MENU */
 
-    totalSlides.textContent =
-        String(slides.length).padStart(2, "0");
+    navigation.classList.remove("open");
 
 
-    /* =====================================================
-       CREATE NAVIGATION DOTS
-    ===================================================== */
+    /* WAIT FOR ANIMATION */
 
-    slides.forEach((slide, index) => {
+    setTimeout(() => {
 
-        const dot =
-            document.createElement("div");
+        /* Hide all pages */
 
-        dot.classList.add("dot");
+        pages.forEach(page => {
 
-        if (index === 0) {
-            dot.classList.add("active");
-        }
-
-        dot.title =
-            `${index + 1}. ${slide.dataset.title}`;
-
-        dot.addEventListener("click", () => {
-
-            goToSlide(index);
+            page.classList.remove("active");
 
         });
 
-        dotsContainer.appendChild(dot);
+
+        /* Show selected page */
+
+        const selectedPage =
+            document.getElementById(pageName);
+
+        selectedPage.classList.add("active");
+
+
+        /* Update navigation */
+
+        navButtons.forEach(button => {
+
+            button.classList.remove("active");
+
+            if (
+                button.dataset.page === pageName
+            ) {
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+
+        /* Scroll to top */
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+
+        /* Hide popup */
+
+        setTimeout(() => {
+
+            overlay.classList.remove("show");
+
+        }, 300);
+
+    }, 450);
+
+}
+
+
+/* =========================================
+   NAVIGATION BUTTONS
+========================================= */
+
+navButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const page =
+            button.dataset.page;
+
+        changePage(page);
+
+    });
+
+});
+
+
+/* =========================================
+   OTHER BUTTONS
+========================================= */
+
+document.querySelectorAll("[data-go]")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const page =
+                button.dataset.go;
+
+            changePage(page);
+
+        });
 
     });
 
 
-    const dots =
-        Array.from(
-            document.querySelectorAll(".dot")
-        );
+/* =========================================
+   MOBILE MENU
+========================================= */
 
+menuBtn.addEventListener("click", () => {
 
-    /* =====================================================
-       UPDATE UI
-    ===================================================== */
+    navigation.classList.toggle("open");
 
-    function updateUI() {
+});
 
-        currentSlide.textContent =
-            String(currentIndex + 1).padStart(2, "0");
 
+/* =========================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+========================================= */
 
-        const progress =
-            ((currentIndex + 1) / slides.length) * 100;
+document.addEventListener("click", event => {
 
+    const clickedInsideMenu =
+        navigation.contains(event.target);
 
-        progressBar.style.width =
-            `${progress}%`;
+    const clickedMenuButton =
+        menuBtn.contains(event.target);
 
-
-        dots.forEach((dot, index) => {
-
-            dot.classList.toggle(
-                "active",
-                index === currentIndex
-            );
-
-        });
-
-    }
-
-
-    /* =====================================================
-       SHOW TRANSITION
-    ===================================================== */
-
-    function showTransition(index) {
-
-        transitionNumber.textContent =
-            String(index + 1).padStart(2, "0");
-
-
-        transitionTitle.textContent =
-            slides[index].dataset.title.toUpperCase();
-
-
-        transitionScreen.classList.add("show");
-
-
-        setTimeout(() => {
-
-            transitionScreen.classList.remove("show");
-
-        }, 600);
-
-    }
-
-
-    /* =====================================================
-       GO TO SLIDE
-    ===================================================== */
-
-    function goToSlide(index) {
-
-        if (isAnimating) return;
-
-        if (index < 0) {
-            index = slides.length - 1;
-        }
-
-        if (index >= slides.length) {
-            index = 0;
-        }
-
-
-        if (index === currentIndex) {
-            return;
-        }
-
-
-        isAnimating = true;
-
-
-        showTransition(index);
-
-
-        slides[currentIndex]
-            .classList.remove("active");
-
-
-        setTimeout(() => {
-
-            currentIndex = index;
-
-            slides[currentIndex]
-                .classList.add("active");
-
-            updateUI();
-
-
-            setTimeout(() => {
-
-                isAnimating = false;
-
-            }, 500);
-
-        }, 250);
-
-    }
-
-
-    /* =====================================================
-       NEXT
-    ===================================================== */
-
-    function nextSlide() {
-
-        goToSlide(
-            currentIndex + 1
-        );
-
-    }
-
-
-    /* =====================================================
-       PREVIOUS
-    ===================================================== */
-
-    function previousSlide() {
-
-        goToSlide(
-            currentIndex - 1
-        );
-
-    }
-
-
-    /* =====================================================
-       BUTTON EVENTS
-    ===================================================== */
-
-    nextBtn.addEventListener(
-        "click",
-        nextSlide
-    );
-
-
-    prevBtn.addEventListener(
-        "click",
-        previousSlide
-    );
-
-
-    /* =====================================================
-       ALL NEXT BUTTONS
-    ===================================================== */
-
-    document
-        .querySelectorAll(".next-btn")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                nextSlide
-            );
-
-        });
-
-
-    /* =====================================================
-       RESTART
-    ===================================================== */
-
-    restartBtn.addEventListener(
-        "click",
-        () => {
-
-            goToSlide(0);
-
-        }
-    );
-
-
-    /* =====================================================
-       KEYBOARD NAVIGATION
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "ArrowRight" ||
-                event.key === " " ||
-                event.key === "PageDown"
-            ) {
-
-                event.preventDefault();
-
-                nextSlide();
-
-            }
-
-
-            if (
-                event.key === "ArrowLeft" ||
-                event.key === "PageUp"
-            ) {
-
-                event.preventDefault();
-
-                previousSlide();
-
-            }
-
-
-            if (event.key === "Home") {
-
-                event.preventDefault();
-
-                goToSlide(0);
-
-            }
-
-
-            if (event.key === "End") {
-
-                event.preventDefault();
-
-                goToSlide(
-                    slides.length - 1
-                );
-
-            }
-
-
-            if (event.key === "Escape") {
-
-                // Return to first slide
-                goToSlide(0);
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       TOUCH / SWIPE
-    ===================================================== */
-
-    document.addEventListener(
-        "touchstart",
-        event => {
-
-            touchStartX =
-                event.changedTouches[0].screenX;
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    document.addEventListener(
-        "touchend",
-        event => {
-
-            touchEndX =
-                event.changedTouches[0].screenX;
-
-            handleSwipe();
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    function handleSwipe() {
-
-        const difference =
-            touchStartX - touchEndX;
-
-
-        const minimumSwipe =
-            50;
-
-
-        if (
-            Math.abs(difference)
-            < minimumSwipe
-        ) {
-            return;
-        }
-
-
-        if (difference > 0) {
-
-            nextSlide();
-
-        } else {
-
-            previousSlide();
-
-        }
-
-    }
-
-
-    /* =====================================================
-       MOUSE WHEEL
-    ===================================================== */
-
-    let wheelLocked = false;
-
-
-    document.addEventListener(
-        "wheel",
-        event => {
-
-            if (wheelLocked) return;
-
-            wheelLocked = true;
-
-
-            if (event.deltaY > 0) {
-
-                nextSlide();
-
-            } else if (event.deltaY < 0) {
-
-                previousSlide();
-
-            }
-
-
-            setTimeout(() => {
-
-                wheelLocked = false;
-
-            }, 900);
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    /* =====================================================
-       PARTICLES
-    ===================================================== */
-
-    const particlesContainer =
-        document.getElementById("particles");
-
-
-    const particleCount =
-        window.innerWidth < 600
-            ? 20
-            : 45;
-
-
-    for (
-        let i = 0;
-        i < particleCount;
-        i++
+    if (
+        !clickedInsideMenu &&
+        !clickedMenuButton
     ) {
 
-        const particle =
-            document.createElement("span");
+        navigation.classList.remove("open");
+
+    }
+
+});
 
 
-        particle.classList.add(
-            "particle"
-        );
+/* =========================================
+   KEYBOARD NAVIGATION
+========================================= */
+
+document.addEventListener("keydown", event => {
+
+    const activePage =
+        document.querySelector(".page.active");
+
+    const currentIndex =
+        Array.from(pages).indexOf(activePage);
 
 
-        particle.style.left =
-            `${Math.random() * 100}%`;
+    /* RIGHT ARROW */
 
+    if (event.key === "ArrowRight") {
 
-        particle.style.animationDuration =
-            `${8 + Math.random() * 15}s`;
+        const nextIndex =
+            Math.min(
+                currentIndex + 1,
+                pages.length - 1
+            );
 
-
-        particle.style.animationDelay =
-            `${Math.random() * 10}s`;
-
-
-        particle.style.opacity =
-            `${0.1 + Math.random() * 0.4}`;
-
-
-        particlesContainer.appendChild(
-            particle
+        changePage(
+            pages[nextIndex].id
         );
 
     }
 
 
-    /* =====================================================
-       CARD MOUSE EFFECT
-    ===================================================== */
+    /* LEFT ARROW */
 
-    const cards =
-        document.querySelectorAll(
-            ".feature-card, .enterprise-card"
+    if (event.key === "ArrowLeft") {
+
+        const previousIndex =
+            Math.max(
+                currentIndex - 1,
+                0
+            );
+
+        changePage(
+            pages[previousIndex].id
         );
 
+    }
 
-    cards.forEach(card => {
-
-        card.addEventListener(
-            "mousemove",
-            event => {
-
-                const rect =
-                    card.getBoundingClientRect();
+});
 
 
-                const x =
-                    event.clientX - rect.left;
+/* =========================================
+   SWIPE SUPPORT FOR MOBILE
+========================================= */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
 
 
-                const y =
-                    event.clientY - rect.top;
+document.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+);
 
 
-                const rotateX =
-                    ((y / rect.height) - 0.5)
-                    * -5;
+document.addEventListener(
+    "touchend",
+    event => {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        handleSwipe();
+
+    },
+    { passive: true }
+);
 
 
-                const rotateY =
-                    ((x / rect.width) - 0.5)
-                    * 5;
+function handleSwipe() {
+
+    const difference =
+        touchStartX - touchEndX;
 
 
-                card.style.transform =
-                    `
-                    perspective(800px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateY(-6px)
-                    `;
+    /* Ignore tiny movements */
 
-            }
+    if (Math.abs(difference) < 70) {
+        return;
+    }
+
+
+    const activePage =
+        document.querySelector(".page.active");
+
+    const currentIndex =
+        Array.from(pages).indexOf(activePage);
+
+
+    /* Swipe left */
+
+    if (difference > 0) {
+
+        const nextIndex =
+            Math.min(
+                currentIndex + 1,
+                pages.length - 1
+            );
+
+        changePage(
+            pages[nextIndex].id
         );
 
+    }
 
-        card.addEventListener(
-            "mouseleave",
-            () => {
 
-                card.style.transform = "";
+    /* Swipe right */
 
-            }
+    else {
+
+        const previousIndex =
+            Math.max(
+                currentIndex - 1,
+                0
+            );
+
+        changePage(
+            pages[previousIndex].id
         );
 
-    });
+    }
+
+}
 
 
-    /* =====================================================
-       INITIALIZE
-    ===================================================== */
+/* =========================================
+   CARD ANIMATION
+========================================= */
 
-    updateUI();
+const cards =
+    document.querySelectorAll(".platform-card");
 
 
-    /* =====================================================
-       PREVENT CONTEXT MENU
-       Optional presentation behavior
-    ===================================================== */
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-    document.addEventListener(
-        "contextmenu",
-        event => {
+            entries.forEach(entry => {
 
-            // Keep normal browser behavior disabled
-            // for a cleaner presentation experience.
-            event.preventDefault();
+                if (entry.isIntersecting) {
 
+                    entry.target.style.opacity = "1";
+
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .15
         }
     );
+
+
+cards.forEach(card => {
+
+    card.style.opacity = "0";
+
+    card.style.transform =
+        "translateY(25px)";
+
+    card.style.transition =
+        "opacity .6s ease, transform .6s ease";
+
+    observer.observe(card);
 
 });
