@@ -1,2985 +1,565 @@
-/* =========================================================
-   GLOBAL
-========================================================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mobile & Enterprise Platforms</title>
 
-:root {
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    --bg: #05070d;
-    --bg-two: #080c16;
+<body>
 
-    --cyan: #00eaff;
-    --blue: #5b7cff;
-    --purple: #a855f7;
+    <!-- Background Animation -->
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="topbar">
 
-    --white: #f7fbff;
-    --text: #d9e2ec;
-    --muted: #8a99aa;
+        <div class="logo">
+            <div class="logo-icon">◆</div>
+            <div>
+                <h1>PLATFORM<span>VERSE</span></h1>
+                <small>Technology Presentation</small>
+            </div>
+        </div>
 
-    --border: rgba(255,255,255,0.10);
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
 
-    --glass: rgba(255,255,255,0.045);
+        <nav id="navigation">
 
-    --radius: 20px;
+            <button class="nav-btn active" data-page="home">
+                <span>⌂</span>
+                <label>Home</label>
+            </button>
 
-    --transition: 0.7s cubic-bezier(.22,.61,.36,1);
-}
+            <button class="nav-btn" data-page="mobile">
+                <span>📱</span>
+                <label>Mobile</label>
+            </button>
 
+            <button class="nav-btn" data-page="enterprise">
+                <span>🏢</span>
+                <label>Enterprise</label>
+            </button>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            <button class="nav-btn" data-page="comparison">
+                <span>⚡</span>
+                <label>Compare</label>
+            </button>
 
+            <button class="nav-btn" data-page="summary">
+                <span>✓</span>
+                <label>Summary</label>
+            </button>
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+        </nav>
 
+    </header>
 
-body {
 
-    background: var(--bg);
+    <!-- MAIN -->
+    <main>
 
-    color: var(--white);
+        <!-- HOME -->
+        <section class="page active" id="home">
 
-    font-family: "Inter", sans-serif;
+            <div class="hero">
 
-    -webkit-font-smoothing: antialiased;
-}
+                <div class="hero-text">
 
+                    <div class="badge">
+                        DIGITAL TECHNOLOGY
+                    </div>
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
+                    <h2>
+                        MOBILE
+                        <span>PLATFORMS</span>
+                        <br>
+                        &
+                        <span>ENTERPRISE</span>
+                        <br>
+                        PLATFORMS
+                    </h2>
 
-.background {
+                    <p>
+                        Exploring the technologies that power modern
+                        mobile devices and large-scale organizations.
+                    </p>
 
-    position: fixed;
+                    <button class="start-btn" data-go="mobile">
+                        EXPLORE PLATFORMS
+                        <span>→</span>
+                    </button>
 
-    inset: 0;
+                </div>
 
-    z-index: -5;
+                <div class="hero-visual">
 
-    overflow: hidden;
+                    <div class="orbit orbit1"></div>
+                    <div class="orbit orbit2"></div>
 
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(0,234,255,0.07),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(168,85,247,0.08),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #04060b,
-            #080b13
-        );
-}
+                    <div class="center-device">
+                        <div class="screen">
+                            <div class="screen-icon">⚡</div>
+                            <strong>PLATFORM</strong>
+                            <small>ECOSYSTEM</small>
+                        </div>
+                    </div>
 
+                </div>
 
-.grid-lines {
+            </div>
 
-    position: absolute;
+        </section>
 
-    inset: 0;
 
-    opacity: 0.12;
+        <!-- MOBILE -->
+        <section class="page" id="mobile">
 
-    background-image:
-        linear-gradient(
-            rgba(0,234,255,0.07) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(0,234,255,0.07) 1px,
-            transparent 1px
-        );
+            <div class="section-header">
 
-    background-size: 70px 70px;
+                <div>
+                    <span class="section-number">01</span>
 
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent
-        );
-}
+                    <h2>
+                        MOBILE
+                        <span>PLATFORMS</span>
+                    </h2>
 
+                    <p>
+                        Software platforms designed primarily for
+                        smartphones, tablets and other mobile devices.
+                    </p>
+                </div>
 
-.glow {
+            </div>
 
-    position: absolute;
 
-    border-radius: 50%;
+            <div class="platform-grid">
 
-    filter: blur(100px);
+                <article class="platform-card">
 
-    pointer-events: none;
-}
+                    <div class="card-number">01</div>
 
+                    <div class="card-icon android">
+                        🤖
+                    </div>
 
-.glow-one {
+                    <h3>Android</h3>
 
-    width: 350px;
-    height: 350px;
+                    <p>
+                        An open and flexible mobile operating system
+                        developed by Google.
+                    </p>
 
-    top: -120px;
-    left: -100px;
+                    <div class="tags">
+                        <span>Google</span>
+                        <span>Open Source</span>
+                    </div>
 
-    background: rgba(0,234,255,0.14);
+                </article>
 
-    animation: floatingGlow 10s ease-in-out infinite;
-}
 
+                <article class="platform-card">
 
-.glow-two {
+                    <div class="card-number">02</div>
 
-    width: 400px;
-    height: 400px;
+                    <div class="card-icon apple">
+                        
+                    </div>
 
-    right: -160px;
-    bottom: -150px;
+                    <h3>iOS</h3>
 
-    background: rgba(168,85,247,0.13);
+                    <p>
+                        Apple's mobile operating system used on
+                        iPhone and other Apple devices.
+                    </p>
 
-    animation: floatingGlow 13s ease-in-out infinite reverse;
-}
+                    <div class="tags">
+                        <span>Apple</span>
+                        <span>iPhone</span>
+                    </div>
 
+                </article>
 
-.glow-three {
 
-    width: 250px;
-    height: 250px;
+                <article class="platform-card">
 
-    top: 45%;
-    left: 48%;
+                    <div class="card-number">03</div>
 
-    background: rgba(91,124,255,0.06);
+                    <div class="card-icon harmony">
+                        ◈
+                    </div>
 
-    animation: floatingGlow 15s ease-in-out infinite;
-}
+                    <h3>HarmonyOS</h3>
 
+                    <p>
+                        A distributed operating system developed by
+                        Huawei for multiple smart devices.
+                    </p>
 
-@keyframes floatingGlow {
+                    <div class="tags">
+                        <span>Huawei</span>
+                        <span>IoT</span>
+                    </div>
 
-    0%,
-    100% {
-        transform: translate(0,0) scale(1);
-    }
+                </article>
 
-    50% {
-        transform: translate(50px,-30px) scale(1.15);
-    }
-}
 
+                <article class="platform-card">
 
-/* PARTICLES */
+                    <div class="card-number">04</div>
 
-.particles {
+                    <div class="card-icon kaios">
+                        K
+                    </div>
 
-    position: absolute;
+                    <h3>KaiOS</h3>
 
-    inset: 0;
+                    <p>
+                        A lightweight operating system designed
+                        for feature phones and affordable devices.
+                    </p>
 
-    pointer-events: none;
-}
+                    <div class="tags">
+                        <span>Lightweight</span>
+                        <span>Feature Phone</span>
+                    </div>
 
+                </article>
 
-.particle {
+            </div>
 
-    position: absolute;
+        </section>
 
-    width: 2px;
-    height: 2px;
 
-    border-radius: 50%;
+        <!-- ENTERPRISE -->
+        <section class="page" id="enterprise">
 
-    background: var(--cyan);
+            <div class="section-header">
 
-    opacity: 0.4;
+                <div>
+                    <span class="section-number">02</span>
 
-    animation: particleFloat linear infinite;
-}
+                    <h2>
+                        ENTERPRISE
+                        <span>PLATFORMS</span>
+                    </h2>
 
+                    <p>
+                        Technology platforms that support business
+                        operations, applications, data and large-scale
+                        organizational systems.
+                    </p>
 
-@keyframes particleFloat {
+                </div>
 
-    from {
-        transform: translateY(110vh);
-    }
+            </div>
 
-    to {
-        transform: translateY(-10vh);
-    }
-}
 
+            <div class="platform-grid enterprise-grid">
 
-/* =========================================================
-   TOP BAR
-========================================================= */
+                <article class="platform-card">
 
-.topbar {
+                    <div class="card-number">01</div>
 
-    position: fixed;
+                    <div class="card-icon enterprise-icon">
+                        ☁
+                    </div>
 
-    top: 0;
-    left: 0;
-    right: 0;
+                    <h3>Microsoft Azure</h3>
 
-    height: 82px;
+                    <p>
+                        Cloud computing platform providing services
+                        for applications, databases and businesses.
+                    </p>
 
-    padding: 0 5vw;
+                    <div class="tags">
+                        <span>Cloud</span>
+                        <span>Microsoft</span>
+                    </div>
 
-    display: flex;
+                </article>
 
-    align-items: center;
 
-    justify-content: space-between;
+                <article class="platform-card">
 
-    z-index: 50;
+                    <div class="card-number">02</div>
 
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(5,7,13,0.92),
-            rgba(5,7,13,0.45)
-        );
+                    <div class="card-icon enterprise-icon">
+                        ☁
+                    </div>
 
-    backdrop-filter: blur(15px);
+                    <h3>Amazon Web Services</h3>
 
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-}
+                    <p>
+                        Cloud platform offering computing, storage,
+                        databases and many enterprise services.
+                    </p>
 
+                    <div class="tags">
+                        <span>AWS</span>
+                        <span>Cloud</span>
+                    </div>
 
-.brand {
+                </article>
 
-    display: flex;
 
-    align-items: center;
+                <article class="platform-card">
 
-    gap: 12px;
-}
+                    <div class="card-number">03</div>
 
+                    <div class="card-icon enterprise-icon">
+                        ◉
+                    </div>
 
-.brand-icon {
+                    <h3>Oracle Cloud</h3>
 
-    width: 38px;
-    height: 38px;
+                    <p>
+                        Enterprise cloud platform supporting databases,
+                        applications and business infrastructure.
+                    </p>
 
-    display: grid;
-    place-items: center;
+                    <div class="tags">
+                        <span>Oracle</span>
+                        <span>Database</span>
+                    </div>
 
-    border: 1px solid rgba(0,234,255,0.3);
+                </article>
 
-    background: rgba(0,234,255,0.05);
 
-    color: var(--cyan);
+                <article class="platform-card">
 
-    font-size: 20px;
+                    <div class="card-number">04</div>
 
-    box-shadow:
-        0 0 25px rgba(0,234,255,0.08);
-}
+                    <div class="card-icon enterprise-icon">
+                        S
+                    </div>
 
+                    <h3>SAP</h3>
 
-.brand-title {
+                    <p>
+                        Enterprise software platform used for finance,
+                        supply chain, human resources and operations.
+                    </p>
 
-    font-family: "Orbitron", sans-serif;
+                    <div class="tags">
+                        <span>ERP</span>
+                        <span>Business</span>
+                    </div>
 
-    font-size: 13px;
+                </article>
 
-    font-weight: 700;
 
-    letter-spacing: 1.5px;
-}
+                <!-- 5TH ENTERPRISE EXAMPLE -->
+                <article class="platform-card">
 
+                    <div class="card-number">05</div>
 
-.brand-title span {
+                    <div class="card-icon enterprise-icon">
+                        IBM
+                    </div>
 
-    color: var(--cyan);
-}
+                    <h3>IBM Cloud</h3>
 
+                    <p>
+                        Enterprise cloud platform providing infrastructure,
+                        AI, data and application services for organizations.
+                    </p>
 
-.brand-subtitle {
+                    <div class="tags">
+                        <span>IBM</span>
+                        <span>Cloud</span>
+                    </div>
 
-    margin-top: 3px;
+                </article>
 
-    font-family: "Orbitron", sans-serif;
+            </div>
 
-    font-size: 6px;
+        </section>
 
-    letter-spacing: 2px;
 
-    color: var(--muted);
-}
+        <!-- COMPARISON -->
+        <section class="page" id="comparison">
 
+            <div class="section-header">
 
-.top-status {
+                <div>
+                    <span class="section-number">03</span>
 
-    display: flex;
+                    <h2>
+                        PLATFORM
+                        <span>COMPARISON</span>
+                    </h2>
 
-    align-items: center;
+                    <p>
+                        Mobile and enterprise platforms serve different
+                        purposes but both support modern technology.
+                    </p>
+                </div>
 
-    gap: 8px;
+            </div>
 
-    font-family: "Orbitron", sans-serif;
 
-    font-size: 7px;
+            <div class="comparison">
 
-    letter-spacing: 1.5px;
+                <div class="compare-card mobile-compare">
 
-    color: var(--muted);
-}
+                    <div class="compare-icon">
+                        📱
+                    </div>
 
+                    <h3>Mobile Platforms</h3>
 
-.status-dot {
+                    <ul>
+                        <li>Designed for mobile devices</li>
+                        <li>User-focused experience</li>
+                        <li>Touch-based interfaces</li>
+                        <li>Mobile applications</li>
+                        <li>Portable and personal</li>
+                    </ul>
 
-    width: 6px;
-    height: 6px;
+                </div>
 
-    border-radius: 50%;
 
-    background: var(--cyan);
+                <div class="vs">
+                    VS
+                </div>
 
-    box-shadow: 0 0 12px var(--cyan);
 
-    animation: pulse 1.5s infinite;
-}
+                <div class="compare-card enterprise-compare">
 
+                    <div class="compare-icon">
+                        🏢
+                    </div>
 
-@keyframes pulse {
+                    <h3>Enterprise Platforms</h3>
 
-    0%,
-    100% {
-        opacity: 1;
-    }
+                    <ul>
+                        <li>Designed for organizations</li>
+                        <li>Business-focused systems</li>
+                        <li>Large-scale infrastructure</li>
+                        <li>Data and application management</li>
+                        <li>Supports many users</li>
+                    </ul>
 
-    50% {
-        opacity: 0.35;
-    }
-}
+                </div>
 
+            </div>
 
-/* =========================================================
-   PROGRESS
-========================================================= */
 
-.progress-container {
+            <div class="info-box">
 
-    position: fixed;
+                <span>💡</span>
 
-    top: 81px;
-    left: 0;
+                <p>
+                    <strong>Key Idea:</strong>
+                    Mobile platforms focus on personal and portable
+                    computing, while enterprise platforms focus on
+                    organizational systems, scalability and business
+                    operations.
+                </p>
 
-    width: 100%;
+            </div>
 
-    height: 2px;
+        </section>
 
-    z-index: 60;
 
-    background: rgba(255,255,255,0.04);
-}
+        <!-- SUMMARY -->
+        <section class="page" id="summary">
 
+            <div class="summary-container">
 
-.progress-bar {
+                <div class="summary-icon">
+                    ✓
+                </div>
 
-    height: 100%;
+                <span class="section-number">04</span>
 
-    width: 10%;
+                <h2>
+                    TECHNOLOGY
+                    <span>CONNECTS</span>
+                </h2>
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--blue),
-            var(--purple)
-        );
+                <p>
+                    Mobile and enterprise platforms are essential parts
+                    of today's digital world.
+                </p>
 
-    box-shadow:
-        0 0 15px rgba(0,234,255,0.6);
 
-    transition: width 0.7s ease;
-}
+                <div class="summary-grid">
 
+                    <div>
+                        <strong>Mobile</strong>
+                        <span>Personal Technology</span>
+                    </div>
 
-/* =========================================================
-   COUNTER
-========================================================= */
+                    <div>
+                        <strong>Enterprise</strong>
+                        <span>Business Technology</span>
+                    </div>
 
-.slide-counter {
+                    <div>
+                        <strong>Future</strong>
+                        <span>Connected Ecosystems</span>
+                    </div>
 
-    position: fixed;
+                </div>
 
-    top: 105px;
-    right: 5vw;
 
-    z-index: 40;
+                <button class="restart-btn" data-go="home">
+                    ↻ RESTART PRESENTATION
+                </button>
 
-    display: flex;
+            </div>
 
-    align-items: center;
+        </section>
 
-    gap: 9px;
+    </main>
 
-    font-family: "Orbitron", sans-serif;
 
-    font-size: 9px;
+    <!-- PAGE POPUP -->
+    <div class="transition-overlay" id="transitionOverlay">
 
-    letter-spacing: 2px;
+        <div class="transition-box">
 
-    color: var(--muted);
-}
+            <div class="loading-circle"></div>
 
+            <h3 id="transitionTitle">
+                Loading...
+            </h3>
 
-.slide-counter #currentSlide {
+            <p>
+                Preparing presentation
+            </p>
 
-    color: var(--cyan);
+        </div>
 
-    font-size: 13px;
-}
+    </div>
 
 
-.counter-line {
+    <footer>
 
-    width: 25px;
+        <span>PLATFORMVERSE</span>
 
-    height: 1px;
+        <span>
+            Mobile & Enterprise Platforms
+        </span>
 
-    background: var(--border);
-}
+    </footer>
 
 
-/* =========================================================
-   PRESENTATION
-========================================================= */
+    <script src="script.js"></script>
 
-#presentation {
-
-    width: 100%;
-    height: 100%;
-}
-
-
-.slide {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    padding:
-        130px
-        7vw
-        120px;
-
-    display: flex;
-
-    align-items: center;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateX(60px)
-        scale(0.98);
-
-    transition:
-        opacity var(--transition),
-        transform var(--transition),
-        visibility var(--transition);
-
-    overflow: hidden;
-}
-
-
-.slide.active {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    transform:
-        translateX(0)
-        scale(1);
-
-    z-index: 10;
-}
-
-
-.slide-content {
-
-    width: 100%;
-
-    max-width: 1400px;
-
-    max-height:
-        calc(100vh - 210px);
-
-    overflow-y: auto;
-
-    scrollbar-width: none;
-}
-
-
-.slide-content::-webkit-scrollbar {
-
-    display: none;
-}
-
-
-/* =========================================================
-   TYPOGRAPHY
-========================================================= */
-
-.section-number {
-
-    margin-bottom: 18px;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-
-    color: var(--cyan);
-}
-
-
-h1,
-h2,
-h3 {
-
-    font-family: "Orbitron", sans-serif;
-}
-
-
-h2 {
-
-    max-width: 900px;
-
-    margin-bottom: 18px;
-
-    font-size: clamp(
-        35px,
-        5vw,
-        72px
-    );
-
-    line-height: 1.05;
-
-    letter-spacing: -2px;
-}
-
-
-h2 span {
-
-    color: var(--cyan);
-
-    text-shadow:
-        0 0 30px rgba(0,234,255,0.18);
-}
-
-
-.intro-text {
-
-    max-width: 750px;
-
-    margin-bottom: 38px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero-content {
-
-    max-width: 850px;
-
-    position: relative;
-
-    z-index: 5;
-}
-
-
-.hero-label {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 22px;
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-}
-
-
-.hero-label span {
-
-    width: 28px;
-
-    height: 1px;
-
-    background: var(--cyan);
-
-    box-shadow: 0 0 10px var(--cyan);
-}
-
-
-.hero-content h1 {
-
-    font-size: clamp(
-        48px,
-        8vw,
-        112px
-    );
-
-    line-height: 0.92;
-
-    letter-spacing: -5px;
-
-    max-width: 900px;
-}
-
-
-.hero-content h1 span {
-
-    display: block;
-
-    color: var(--cyan);
-
-    text-shadow:
-        0 0 35px rgba(0,234,255,0.2);
-}
-
-
-.hero-content h1 strong {
-
-    display: block;
-
-    font-weight: 700;
-
-    color: transparent;
-
-    -webkit-text-stroke:
-        1px rgba(255,255,255,0.7);
-
-    background:
-        linear-gradient(
-            120deg,
-            #fff,
-            #8da1ff
-        );
-
-    -webkit-background-clip: text;
-
-    background-clip: text;
-}
-
-
-.hero-description {
-
-    max-width: 600px;
-
-    margin-top: 30px;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
-
-.hero-buttons {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    margin-top: 35px;
-}
-
-
-.primary-btn,
-.restart-btn {
-
-    border: 0;
-
-    cursor: pointer;
-
-    color: #001014;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    background: var(--cyan);
-
-    box-shadow:
-        0 0 30px rgba(0,234,255,0.18);
-
-    transition: 0.3s ease;
-}
-
-
-.primary-btn {
-
-    padding: 15px 22px;
-
-    font-size: 9px;
-}
-
-
-.primary-btn span {
-
-    margin-left: 15px;
-
-    font-size: 15px;
-}
-
-
-.primary-btn:hover,
-.restart-btn:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 35px rgba(0,234,255,0.3);
-}
-
-
-.keyboard-hint {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    color: var(--muted);
-
-    font-size: 9px;
-}
-
-
-kbd {
-
-    padding: 5px 7px;
-
-    border: 1px solid var(--border);
-
-    background: rgba(255,255,255,0.04);
-
-    border-radius: 5px;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 7px;
-
-    color: var(--text);
-}
-
-
-.hero-stats {
-
-    display: flex;
-
-    gap: 50px;
-
-    margin-top: 55px;
-
-    padding-top: 20px;
-
-    border-top: 1px solid var(--border);
-
-    max-width: 700px;
-}
-
-
-.hero-stats div {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-}
-
-
-.hero-stats strong {
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 24px;
-
-    color: var(--white);
-}
-
-
-.hero-stats span {
-
-    font-size: 7px;
-
-    letter-spacing: 1.5px;
-
-    color: var(--muted);
-}
-
-
-/* =========================================================
-   HERO DEVICE
-========================================================= */
-
-.hero-visual {
-
-    position: absolute;
-
-    right: 7vw;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 420px;
-    height: 550px;
-
-    display: grid;
-
-    place-items: center;
-}
-
-
-.device {
-
-    position: relative;
-
-    width: 245px;
-    height: 480px;
-
-    padding: 10px;
-
-    border-radius: 38px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #29303c,
-            #080a0f
-        );
-
-    border: 2px solid rgba(255,255,255,0.16);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,0.65),
-        0 0 80px rgba(0,234,255,0.08);
-
-    transform:
-        rotate(8deg);
-
-    animation:
-        deviceFloat 5s ease-in-out infinite;
-}
-
-
-@keyframes deviceFloat {
-
-    0%,
-    100% {
-        transform:
-            rotate(8deg)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            rotate(5deg)
-            translateY(-15px);
-    }
-}
-
-
-.device-camera {
-
-    position: absolute;
-
-    top: 14px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 75px;
-    height: 20px;
-
-    border-radius: 20px;
-
-    background: #030407;
-
-    z-index: 4;
-}
-
-
-.device-screen {
-
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 29px;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(0,234,255,0.14),
-            transparent 30%
-        ),
-        linear-gradient(
-            160deg,
-            #07131b,
-            #05070d
-        );
-
-    border: 1px solid rgba(0,234,255,0.12);
-}
-
-
-.screen-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 25px 18px;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 7px;
-
-    color: var(--muted);
-}
-
-
-.screen-logo {
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%,-60%);
-
-    width: 100px;
-    height: 100px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(0,234,255,0.25);
-
-    color: var(--cyan);
-
-    font-size: 45px;
-
-    box-shadow:
-        0 0 60px rgba(0,234,255,0.15);
-}
-
-
-.screen-title {
-
-    position: absolute;
-
-    bottom: 80px;
-
-    width: 100%;
-
-    text-align: center;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-}
-
-
-.screen-title b {
-
-    display: block;
-
-    color: var(--cyan);
-
-    margin-top: 7px;
-}
-
-
-.screen-lines {
-
-    position: absolute;
-
-    bottom: 38px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-
-    gap: 6px;
-}
-
-
-.screen-lines i {
-
-    display: block;
-
-    width: 25px;
-
-    height: 2px;
-
-    background: var(--cyan);
-
-    opacity: 0.4;
-}
-
-
-/* ORBITS */
-
-.orbit {
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(0,234,255,0.12);
-
-    transform: rotate(-20deg);
-}
-
-
-.orbit-1 {
-
-    width: 500px;
-    height: 180px;
-}
-
-
-.orbit-2 {
-
-    width: 420px;
-    height: 150px;
-
-    transform:
-        rotate(55deg);
-}
-
-
-.orbit-3 {
-
-    width: 350px;
-    height: 120px;
-
-    transform:
-        rotate(-65deg);
-}
-
-
-/* =========================================================
-   FEATURE CARDS
-========================================================= */
-
-.feature-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 15px;
-}
-
-
-.feature-card {
-
-    position: relative;
-
-    min-height: 250px;
-
-    padding: 25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.065),
-            rgba(255,255,255,0.018)
-        );
-
-    border: 1px solid var(--border);
-
-    backdrop-filter: blur(20px);
-
-    overflow: hidden;
-
-    transition: 0.4s ease;
-}
-
-
-.feature-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-    height: 100px;
-
-    right: -50px;
-    bottom: -50px;
-
-    border-radius: 50%;
-
-    background: var(--cyan);
-
-    filter: blur(45px);
-
-    opacity: 0;
-
-    transition: 0.4s;
-}
-
-
-.feature-card:hover {
-
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(0,234,255,0.35);
-
-    box-shadow:
-        0 20px 50px rgba(0,234,255,0.06);
-}
-
-
-.feature-card:hover::after {
-
-    opacity: 0.12;
-}
-
-
-.card-number {
-
-    position: absolute;
-
-    top: 20px;
-    right: 20px;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 9px;
-
-    color: rgba(255,255,255,0.2);
-}
-
-
-.feature-icon {
-
-    width: 52px;
-    height: 52px;
-
-    display: grid;
-    place-items: center;
-
-    margin-bottom: 35px;
-
-    color: var(--cyan);
-
-    font-size: 25px;
-
-    background:
-        rgba(0,234,255,0.04);
-
-    border:
-        1px solid rgba(0,234,255,0.16);
-}
-
-
-.feature-card h3 {
-
-    font-size: 15px;
-
-    margin-bottom: 12px;
-}
-
-
-.feature-card p {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   PLATFORM
-========================================================= */
-
-.platform-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    align-items: center;
-
-    gap: 80px;
-}
-
-
-.platform-info h2 {
-
-    font-size:
-        clamp(50px,7vw,100px);
-}
-
-
-.platform-logo {
-
-    margin-bottom: 20px;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-}
-
-
-.android-logo {
-
-    color: #80ff9b;
-}
-
-
-.ios-logo {
-
-    color: white;
-
-    font-size: 40px;
-}
-
-
-.platform-description {
-
-    max-width: 600px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-
-.tag-list {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin-top: 25px;
-}
-
-
-.tag-list span {
-
-    padding: 8px 11px;
-
-    border: 1px solid var(--border);
-
-    color: var(--muted);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 6px;
-
-    letter-spacing: 1px;
-}
-
-
-/* PLATFORM PANEL */
-
-.platform-panel {
-
-    padding: 30px;
-
-    border: 1px solid var(--border);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.06),
-            rgba(255,255,255,0.015)
-        );
-
-    backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.2);
-}
-
-
-.panel-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding-bottom: 18px;
-
-    border-bottom: 1px solid var(--border);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    color: var(--cyan);
-}
-
-
-.panel-header b {
-
-    color: rgba(255,255,255,0.2);
-}
-
-
-.platform-list {
-
-    margin-top: 10px;
-}
-
-
-.platform-item {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    padding: 20px 0;
-
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-
-    transition: 0.3s;
-}
-
-
-.platform-item:last-child {
-
-    border-bottom: 0;
-}
-
-
-.platform-item:hover {
-
-    padding-left: 8px;
-}
-
-
-.platform-item > span {
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 8px;
-}
-
-
-.platform-item strong {
-
-    display: block;
-
-    font-size: 12px;
-
-    margin-bottom: 4px;
-}
-
-
-.platform-item small {
-
-    color: var(--muted);
-
-    font-size: 10px;
-}
-
-
-/* =========================================================
-   COMPARISON
-========================================================= */
-
-.comparison {
-
-    max-width: 1000px;
-
-    border:
-        1px solid var(--border);
-
-    overflow: hidden;
-
-    background:
-        rgba(255,255,255,0.025);
-}
-
-
-.comparison-header,
-.comparison-row {
-
-    display: grid;
-
-    grid-template-columns:
-        1.2fr 1fr 1fr;
-}
-
-
-.comparison-header {
-
-    background:
-        rgba(0,234,255,0.06);
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-
-.comparison-row {
-
-    border-top:
-        1px solid var(--border);
-
-    font-size: 11px;
-
-    color: var(--muted);
-
-    transition: 0.3s;
-}
-
-
-.comparison-row:hover {
-
-    background:
-        rgba(255,255,255,0.035);
-
-    color: white;
-}
-
-
-.comparison-header div,
-.comparison-row div {
-
-    padding: 17px 20px;
-
-    border-right:
-        1px solid var(--border);
-}
-
-
-.comparison-row div:first-child {
-
-    color: var(--white);
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   ENTERPRISE DEFINITION
-========================================================= */
-
-.enterprise-definition {
-
-    display: grid;
-
-    grid-template-columns:
-        1.5fr 1fr;
-
-    gap: 20px;
-}
-
-
-.definition-main {
-
-    display: flex;
-
-    gap: 25px;
-
-    align-items: center;
-
-    padding: 35px;
-
-    border: 1px solid var(--border);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,234,255,0.05),
-            rgba(255,255,255,0.02)
-        );
-}
-
-
-.definition-icon {
-
-    flex-shrink: 0;
-
-    width: 70px;
-    height: 70px;
-
-    display: grid;
-    place-items: center;
-
-    border: 1px solid rgba(0,234,255,0.25);
-
-    color: var(--cyan);
-
-    font-size: 30px;
-
-    box-shadow:
-        0 0 30px rgba(0,234,255,0.08);
-}
-
-
-.definition-main h3 {
-
-    margin-bottom: 10px;
-
-    font-size: 18px;
-}
-
-
-.definition-main p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-
-.definition-points {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 10px;
-}
-
-
-.definition-points span {
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 6px;
-
-    padding: 20px;
-
-    border: 1px solid var(--border);
-
-    background: var(--glass);
-
-    color: var(--muted);
-
-    font-size: 10px;
-}
-
-
-.definition-points b {
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 8px;
-}
-
-
-/* =========================================================
-   ENTERPRISE CARDS
-========================================================= */
-
-.enterprise-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(5, 1fr);
-
-    gap: 15px;
-}
-
-
-.enterprise-card {
-
-    position: relative;
-
-    min-height: 350px;
-
-    padding: 25px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    border: 1px solid var(--border);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.065),
-            rgba(255,255,255,0.018)
-        );
-
-    backdrop-filter: blur(18px);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-
-.enterprise-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 160px;
-    height: 160px;
-
-    top: -90px;
-    right: -90px;
-
-    border-radius: 50%;
-
-    background: var(--cyan);
-
-    filter: blur(60px);
-
-    opacity: 0.08;
-
-    transition: 0.4s;
-}
-
-
-.enterprise-card:hover {
-
-    transform:
-        translateY(-8px)
-        scale(1.015);
-
-    border-color:
-        var(--cyan);
-
-    box-shadow:
-        0 20px 50px rgba(0,234,255,0.10);
-}
-
-
-.enterprise-card:hover::before {
-
-    opacity: 0.2;
-
-    transform: scale(1.5);
-}
-
-
-.enterprise-card-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    position: relative;
-
-    z-index: 2;
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-.enterprise-card-top b {
-
-    color: rgba(255,255,255,0.25);
-
-    font-size: 10px;
-}
-
-
-.big-symbol {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: 58px;
-    height: 58px;
-
-    display: grid;
-
-    place-items: center;
-
-    margin: 32px 0 25px;
-
-    border: 1px solid rgba(0,234,255,0.25);
-
-    color: var(--cyan);
-
-    font-size: 28px;
-
-    background:
-        rgba(0,234,255,0.04);
-
-    transition: 0.4s;
-}
-
-
-.enterprise-card:hover .big-symbol {
-
-    transform:
-        rotate(8deg)
-        scale(1.1);
-
-    background:
-        rgba(0,234,255,0.1);
-
-    box-shadow:
-        0 0 25px rgba(0,234,255,0.12);
-}
-
-
-.enterprise-card h3 {
-
-    position: relative;
-
-    z-index: 2;
-
-    font-size: 14px;
-
-    line-height: 1.4;
-
-    margin-bottom: 12px;
-}
-
-
-.enterprise-card p {
-
-    position: relative;
-
-    z-index: 2;
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    line-height: 1.7;
-
-    margin-bottom: 20px;
-}
-
-
-.card-tag {
-
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: auto;
-
-    padding-top: 14px;
-
-    border-top:
-        1px solid var(--border);
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 6px;
-
-    letter-spacing: 1.3px;
-}
-
-
-/* =========================================================
-   ENTERPRISE FLOW
-========================================================= */
-
-.enterprise-flow {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    margin:
-        45px auto;
-
-    max-width: 1100px;
-}
-
-
-.flow-node {
-
-    min-width: 130px;
-
-    padding: 25px 15px;
-
-    text-align: center;
-
-    border: 1px solid rgba(0,234,255,0.2);
-
-    background:
-        rgba(0,234,255,0.035);
-
-    transition: 0.3s;
-}
-
-
-.flow-node:hover {
-
-    transform: translateY(-8px);
-
-    border-color: var(--cyan);
-
-    box-shadow:
-        0 15px 40px rgba(0,234,255,0.1);
-}
-
-
-.flow-node div {
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 20px;
-
-    color: var(--cyan);
-}
-
-
-.flow-node small {
-
-    display: block;
-
-    margin-top: 8px;
-
-    font-size: 6px;
-
-    letter-spacing: 1.5px;
-
-    color: var(--muted);
-}
-
-
-.flow-line {
-
-    width: 50px;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            transparent
-        );
-}
-
-
-.central-message {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    max-width: 750px;
-
-    margin: auto;
-
-    padding: 22px 25px;
-
-    border-left:
-        2px solid var(--cyan);
-
-    background:
-        rgba(0,234,255,0.035);
-}
-
-
-.message-icon {
-
-    color: var(--cyan);
-
-    font-size: 25px;
-}
-
-
-.central-message strong {
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-
-.central-message p {
-
-    margin-top: 8px;
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   BENEFITS
-========================================================= */
-
-.benefits-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 18px;
-
-    max-width: 1000px;
-}
-
-
-.benefit-large {
-
-    min-height: 330px;
-
-    padding: 35px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-end;
-
-    border: 1px solid var(--border);
-
-    background:
-        radial-gradient(
-            circle at 30% 20%,
-            rgba(0,234,255,0.10),
-            transparent 40%
-        ),
-        rgba(255,255,255,0.03);
-}
-
-
-.benefit-number {
-
-    position: absolute;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 80px;
-
-    color: rgba(255,255,255,0.035);
-}
-
-
-.benefit-large h3 {
-
-    font-size: 25px;
-
-    margin-bottom: 10px;
-}
-
-
-.benefit-large p {
-
-    max-width: 400px;
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-
-.benefit-stack {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-
-.benefit-small {
-
-    flex: 1;
-
-    display: flex;
-
-    gap: 20px;
-
-    align-items: center;
-
-    padding: 20px;
-
-    border: 1px solid var(--border);
-
-    background: var(--glass);
-
-    transition: 0.3s;
-}
-
-
-.benefit-small:hover {
-
-    transform: translateX(8px);
-
-    border-color:
-        rgba(0,234,255,0.25);
-}
-
-
-.benefit-small > span {
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 10px;
-}
-
-
-.benefit-small strong {
-
-    font-size: 13px;
-}
-
-
-.benefit-small p {
-
-    margin-top: 5px;
-
-    color: var(--muted);
-
-    font-size: 9px;
-}
-
-
-/* =========================================================
-   FINAL
-========================================================= */
-
-.final-slide {
-
-    text-align: center;
-
-    justify-content: center;
-}
-
-
-.final-content {
-
-    max-width: 1000px;
-
-    margin: auto;
-}
-
-
-.final-badge {
-
-    display: inline-block;
-
-    padding: 8px 12px;
-
-    margin-bottom: 25px;
-
-    border: 1px solid rgba(0,234,255,0.25);
-
-    color: var(--cyan);
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 7px;
-
-    letter-spacing: 2px;
-}
-
-
-.final-content h2 {
-
-    max-width: 900px;
-
-    margin:
-        0 auto 25px;
-
-    font-size:
-        clamp(40px,7vw,90px);
-}
-
-
-.final-content p {
-
-    max-width: 700px;
-
-    margin: auto;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-
-.final-stats {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 70px;
-
-    margin-top: 45px;
-
-    padding-top: 25px;
-
-    border-top: 1px solid var(--border);
-}
-
-
-.final-stats div {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-
-.final-stats strong {
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 28px;
-
-    color: var(--cyan);
-}
-
-
-.final-stats span {
-
-    font-size: 7px;
-
-    color: var(--muted);
-
-    letter-spacing: 1.5px;
-}
-
-
-.restart-btn {
-
-    margin-top: 40px;
-
-    padding: 14px 20px;
-
-    font-size: 8px;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navigation {
-
-    position: fixed;
-
-    left: 50%;
-
-    bottom: 25px;
-
-    transform: translateX(-50%);
-
-    z-index: 100;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 8px 10px;
-
-    border: 1px solid var(--border);
-
-    background:
-        rgba(5,7,13,0.75);
-
-    backdrop-filter: blur(15px);
-
-    border-radius: 50px;
-}
-
-
-.nav-button {
-
-    width: 38px;
-    height: 38px;
-
-    border-radius: 50%;
-
-    border: 1px solid var(--border);
-
-    background:
-        rgba(255,255,255,0.03);
-
-    color: var(--white);
-
-    cursor: pointer;
-
-    font-size: 17px;
-
-    transition: 0.3s;
-}
-
-
-.nav-button:hover {
-
-    color: var(--cyan);
-
-    border-color:
-        var(--cyan);
-
-    box-shadow:
-        0 0 20px rgba(0,234,255,0.12);
-}
-
-
-.dots {
-
-    display: flex;
-
-    gap: 6px;
-}
-
-
-.dot {
-
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.2);
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-
-.dot.active {
-
-    width: 20px;
-
-    border-radius: 5px;
-
-    background: var(--cyan);
-
-    box-shadow:
-        0 0 10px rgba(0,234,255,0.5);
-}
-
-
-/* =========================================================
-   TRANSITION SCREEN
-========================================================= */
-
-.transition-screen {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 200;
-
-    display: grid;
-
-    place-items: center;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    background:
-        rgba(3,5,9,0.94);
-
-    backdrop-filter:
-        blur(20px);
-
-    transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
-}
-
-
-.transition-screen.show {
-
-    opacity: 1;
-
-    visibility: visible;
-}
-
-
-.transition-inner {
-
-    text-align: center;
-
-    transform:
-        translateY(20px)
-        scale(0.95);
-
-    transition:
-        0.5s cubic-bezier(.22,.61,.36,1);
-}
-
-
-.transition-screen.show .transition-inner {
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-.transition-number {
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: 70px;
-
-    color: var(--cyan);
-
-    opacity: 0.18;
-}
-
-
-.transition-title {
-
-    margin-top: -15px;
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size: clamp(20px,4vw,45px);
-
-    letter-spacing: 3px;
-}
-
-
-.transition-line {
-
-    width: 100px;
-
-    height: 2px;
-
-    margin:
-        20px auto 0;
-
-    background: var(--cyan);
-
-    box-shadow:
-        0 0 20px var(--cyan);
-}
-
-
-/* =========================================================
-   HELP
-========================================================= */
-
-.help {
-
-    position: fixed;
-
-    left: 5vw;
-
-    bottom: 28px;
-
-    z-index: 50;
-
-    display: flex;
-
-    gap: 15px;
-
-    color: var(--muted);
-
-    font-size: 8px;
-}
-
-
-.help div {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 5px;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1200px) {
-
-    .hero-visual {
-
-        right: -70px;
-
-        opacity: 0.35;
-    }
-
-
-    .feature-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .enterprise-grid {
-
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
-
-
-    .enterprise-card {
-
-        min-height: 330px;
-    }
-
-}
-
-
-/* =========================================================
-   TABLET SMALL
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .slide {
-
-        padding:
-            115px 35px
-            105px;
-    }
-
-
-    .hero-visual {
-
-        display: none;
-    }
-
-
-    .platform-layout {
-
-        grid-template-columns:
-            1fr;
-
-        gap: 30px;
-    }
-
-
-    .platform-panel {
-
-        max-width: 750px;
-    }
-
-
-    .enterprise-definition {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .enterprise-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .enterprise-flow {
-
-        flex-wrap: wrap;
-
-        gap: 10px;
-    }
-
-
-    .flow-line {
-
-        width: 25px;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-
-    .topbar {
-
-        height: 68px;
-
-        padding: 0 18px;
-    }
-
-
-    .brand-icon {
-
-        width: 32px;
-        height: 32px;
-
-        font-size: 16px;
-    }
-
-
-    .brand-title {
-
-        font-size: 10px;
-    }
-
-
-    .brand-subtitle {
-
-        font-size: 5px;
-    }
-
-
-    .top-status {
-
-        display: none;
-    }
-
-
-    .progress-container {
-
-        top: 67px;
-    }
-
-
-    .slide {
-
-        padding:
-            95px 18px
-            100px;
-    }
-
-
-    .slide-counter {
-
-        top: 84px;
-
-        right: 18px;
-    }
-
-
-    .section-number {
-
-        font-size: 7px;
-    }
-
-
-    h2 {
-
-        font-size:
-            clamp(
-                32px,
-                11vw,
-                55px
-            );
-
-        letter-spacing:
-            -1.5px;
-    }
-
-
-    .intro-text {
-
-        font-size: 12px;
-
-        line-height: 1.7;
-
-        margin-bottom: 25px;
-    }
-
-
-    .hero-content h1 {
-
-        font-size:
-            clamp(
-                45px,
-                14vw,
-                75px
-            );
-
-        letter-spacing:
-            -3px;
-    }
-
-
-    .hero-description {
-
-        font-size: 12px;
-    }
-
-
-    .hero-buttons {
-
-        align-items:
-            flex-start;
-
-        flex-direction:
-            column;
-    }
-
-
-    .hero-stats {
-
-        gap: 25px;
-
-        flex-wrap: wrap;
-
-        margin-top: 35px;
-    }
-
-
-    .hero-stats strong {
-
-        font-size: 20px;
-    }
-
-
-    .feature-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .feature-card {
-
-        min-height: 210px;
-    }
-
-
-    .platform-layout {
-
-        gap: 20px;
-    }
-
-
-    .platform-info h2 {
-
-        font-size:
-            clamp(
-                50px,
-                18vw,
-                85px
-            );
-    }
-
-
-    .platform-description {
-
-        font-size: 12px;
-    }
-
-
-    .platform-panel {
-
-        padding: 20px;
-    }
-
-
-    .comparison {
-
-        overflow-x: auto;
-    }
-
-
-    .comparison-header,
-    .comparison-row {
-
-        min-width: 620px;
-    }
-
-
-    .enterprise-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .enterprise-card {
-
-        min-height:
-            auto;
-
-        padding: 23px;
-    }
-
-
-    .definition-main {
-
-        align-items:
-            flex-start;
-
-        padding: 22px;
-
-        flex-direction:
-            column;
-    }
-
-
-    .definition-points {
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-
-    .enterprise-flow {
-
-        display: grid;
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-
-    .flow-line {
-
-        display: none;
-    }
-
-
-    .flow-node {
-
-        min-width: 0;
-
-        width: 100%;
-    }
-
-
-    .central-message {
-
-        margin-top: 25px;
-
-        align-items:
-            flex-start;
-    }
-
-
-    .benefits-layout {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .benefit-large {
-
-        min-height:
-            260px;
-    }
-
-
-    .final-stats {
-
-        gap: 25px;
-
-        flex-wrap: wrap;
-    }
-
-
-    .final-stats strong {
-
-        font-size: 23px;
-    }
-
-
-    .navigation {
-
-        bottom: 12px;
-
-        padding: 6px 8px;
-    }
-
-
-    .nav-button {
-
-        width: 34px;
-        height: 34px;
-    }
-
-
-    .help {
-
-        display: none;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .brand-title {
-
-        font-size: 8px;
-    }
-
-
-    .slide {
-
-        padding:
-            90px 14px
-            90px;
-    }
-
-
-    .hero-content h1 {
-
-        font-size: 43px;
-    }
-
-
-    .feature-card {
-
-        padding: 20px;
-    }
-
-
-    .definition-points {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .enterprise-flow {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .final-content h2 {
-
-        font-size:
-            38px;
-    }
-
-}
+</body>
+</html>
