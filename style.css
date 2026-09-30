@@ -1,565 +1,1378 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mobile & Enterprise Platforms</title>
+/* ===============================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080b14;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* ===============================
+   BACKGROUND
+================================ */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, #182b52 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #321c52 0%, transparent 30%),
+        #080b14;
+}
+
+.background span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #65e7ff;
+    border-radius: 50%;
+    opacity: .4;
+    animation: floatParticle 10s linear infinite;
+}
+
+.background span:nth-child(1) {
+    left: 10%;
+    top: 80%;
+    animation-delay: 0s;
+}
+
+.background span:nth-child(2) {
+    left: 30%;
+    top: 50%;
+    animation-delay: 2s;
+}
+
+.background span:nth-child(3) {
+    left: 60%;
+    top: 80%;
+    animation-delay: 4s;
+}
+
+.background span:nth-child(4) {
+    left: 80%;
+    top: 40%;
+    animation-delay: 6s;
+}
+
+.background span:nth-child(5) {
+    left: 90%;
+    top: 90%;
+    animation-delay: 8s;
+}
+
+@keyframes floatParticle {
+
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: .7;
+    }
+
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+.topbar {
+    width: 100%;
+    min-height: 75px;
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    background: rgba(8, 11, 20, .8);
+    backdrop-filter: blur(20px);
 
-<body>
+    border-bottom: 1px solid rgba(255,255,255,.08);
 
-    <!-- Background Animation -->
-    <div class="background">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <!-- HEADER -->
-    <header class="topbar">
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-        <div class="logo">
-            <div class="logo-icon">◆</div>
-            <div>
-                <h1>PLATFORM<span>VERSE</span></h1>
-                <small>Technology Presentation</small>
-            </div>
-        </div>
 
-        <button class="menu-btn" id="menuBtn">
-            ☰
-        </button>
+/* LOGO */
 
-        <nav id="navigation">
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-            <button class="nav-btn active" data-page="home">
-                <span>⌂</span>
-                <label>Home</label>
-            </button>
+.logo-icon {
+    width: 40px;
+    height: 40px;
 
-            <button class="nav-btn" data-page="mobile">
-                <span>📱</span>
-                <label>Mobile</label>
-            </button>
+    display: grid;
+    place-items: center;
 
-            <button class="nav-btn" data-page="enterprise">
-                <span>🏢</span>
-                <label>Enterprise</label>
-            </button>
+    background: linear-gradient(
+        135deg,
+        #5cf2ff,
+        #8d5cff
+    );
 
-            <button class="nav-btn" data-page="comparison">
-                <span>⚡</span>
-                <label>Compare</label>
-            </button>
+    color: #080b14;
 
-            <button class="nav-btn" data-page="summary">
-                <span>✓</span>
-                <label>Summary</label>
-            </button>
+    border-radius: 12px;
 
-        </nav>
+    transform: rotate(45deg);
+}
 
-    </header>
+.logo-icon::first-letter {
+    transform: rotate(-45deg);
+}
 
+.logo h1 {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
 
-    <!-- MAIN -->
-    <main>
+.logo h1 span {
+    color: #65e7ff;
+}
 
-        <!-- HOME -->
-        <section class="page active" id="home">
+.logo small {
+    font-size: 9px;
+    color: #8992a8;
+    letter-spacing: 1px;
+}
 
-            <div class="hero">
 
-                <div class="hero-text">
+/* NAV */
 
-                    <div class="badge">
-                        DIGITAL TECHNOLOGY
-                    </div>
+nav {
+    display: flex;
+    gap: 7px;
+}
 
-                    <h2>
-                        MOBILE
-                        <span>PLATFORMS</span>
-                        <br>
-                        &
-                        <span>ENTERPRISE</span>
-                        <br>
-                        PLATFORMS
-                    </h2>
+.nav-btn {
+    border: none;
+    background: transparent;
+    color: #8992a8;
 
-                    <p>
-                        Exploring the technologies that power modern
-                        mobile devices and large-scale organizations.
-                    </p>
+    padding: 9px 12px;
 
-                    <button class="start-btn" data-go="mobile">
-                        EXPLORE PLATFORMS
-                        <span>→</span>
-                    </button>
+    border-radius: 10px;
 
-                </div>
+    cursor: pointer;
 
-                <div class="hero-visual">
+    transition: .3s;
 
-                    <div class="orbit orbit1"></div>
-                    <div class="orbit orbit2"></div>
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
 
-                    <div class="center-device">
-                        <div class="screen">
-                            <div class="screen-icon">⚡</div>
-                            <strong>PLATFORM</strong>
-                            <small>ECOSYSTEM</small>
-                        </div>
-                    </div>
+.nav-btn:hover,
+.nav-btn.active {
+    color: white;
+    background: rgba(101,231,255,.1);
+}
 
-                </div>
+.nav-btn.active {
+    box-shadow:
+        inset 0 0 0 1px rgba(101,231,255,.25);
+}
 
-            </div>
+.menu-btn {
+    display: none;
 
-        </section>
+    border: none;
 
+    color: white;
+    background: rgba(255,255,255,.08);
 
-        <!-- MOBILE -->
-        <section class="page" id="mobile">
+    font-size: 22px;
 
-            <div class="section-header">
+    width: 45px;
+    height: 45px;
 
-                <div>
-                    <span class="section-number">01</span>
+    border-radius: 10px;
 
-                    <h2>
-                        MOBILE
-                        <span>PLATFORMS</span>
-                    </h2>
+    cursor: pointer;
+}
 
-                    <p>
-                        Software platforms designed primarily for
-                        smartphones, tablets and other mobile devices.
-                    </p>
-                </div>
 
-            </div>
+/* ===============================
+   MAIN
+================================ */
 
+main {
+    width: 100%;
+}
 
-            <div class="platform-grid">
+.page {
+    display: none;
 
-                <article class="platform-card">
+    width: 100%;
+    min-height: calc(100vh - 120px);
 
-                    <div class="card-number">01</div>
+    padding: 70px 7%;
 
-                    <div class="card-icon android">
-                        🤖
-                    </div>
+    animation: pageIn .6s ease;
+}
 
-                    <h3>Android</h3>
+.page.active {
+    display: block;
+}
 
-                    <p>
-                        An open and flexible mobile operating system
-                        developed by Google.
-                    </p>
+@keyframes pageIn {
 
-                    <div class="tags">
-                        <span>Google</span>
-                        <span>Open Source</span>
-                    </div>
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.98);
+    }
 
-                </article>
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 
+}
 
-                <article class="platform-card">
 
-                    <div class="card-number">02</div>
+/* ===============================
+   HERO
+================================ */
 
-                    <div class="card-icon apple">
-                        
-                    </div>
+.hero {
+    max-width: 1200px;
 
-                    <h3>iOS</h3>
+    margin: auto;
 
-                    <p>
-                        Apple's mobile operating system used on
-                        iPhone and other Apple devices.
-                    </p>
+    min-height: 70vh;
 
-                    <div class="tags">
-                        <span>Apple</span>
-                        <span>iPhone</span>
-                    </div>
+    display: grid;
 
-                </article>
+    grid-template-columns: 1fr 1fr;
 
+    align-items: center;
 
-                <article class="platform-card">
+    gap: 60px;
+}
 
-                    <div class="card-number">03</div>
+.badge {
+    display: inline-block;
 
-                    <div class="card-icon harmony">
-                        ◈
-                    </div>
+    padding: 8px 14px;
 
-                    <h3>HarmonyOS</h3>
+    border-radius: 30px;
 
-                    <p>
-                        A distributed operating system developed by
-                        Huawei for multiple smart devices.
-                    </p>
+    background: rgba(101,231,255,.08);
 
-                    <div class="tags">
-                        <span>Huawei</span>
-                        <span>IoT</span>
-                    </div>
+    border: 1px solid rgba(101,231,255,.25);
 
-                </article>
+    color: #65e7ff;
 
+    font-size: 11px;
 
-                <article class="platform-card">
+    letter-spacing: 2px;
 
-                    <div class="card-number">04</div>
+    margin-bottom: 20px;
+}
 
-                    <div class="card-icon kaios">
-                        K
-                    </div>
+.hero h2 {
+    font-size: clamp(40px, 6vw, 78px);
 
-                    <h3>KaiOS</h3>
+    line-height: .95;
 
-                    <p>
-                        A lightweight operating system designed
-                        for feature phones and affordable devices.
-                    </p>
+    letter-spacing: -3px;
 
-                    <div class="tags">
-                        <span>Lightweight</span>
-                        <span>Feature Phone</span>
-                    </div>
+    margin-bottom: 25px;
+}
 
-                </article>
+.hero h2 span,
+.section-header h2 span,
+.summary-container h2 span {
+    color: #65e7ff;
+}
 
-            </div>
+.hero p {
+    max-width: 550px;
 
-        </section>
+    color: #9ba4b8;
 
+    line-height: 1.7;
 
-        <!-- ENTERPRISE -->
-        <section class="page" id="enterprise">
+    margin-bottom: 30px;
+}
 
-            <div class="section-header">
+.start-btn,
+.restart-btn {
+    border: none;
 
-                <div>
-                    <span class="section-number">02</span>
+    background: linear-gradient(
+        90deg,
+        #65e7ff,
+        #8d6cff
+    );
 
-                    <h2>
-                        ENTERPRISE
-                        <span>PLATFORMS</span>
-                    </h2>
+    color: #071018;
 
-                    <p>
-                        Technology platforms that support business
-                        operations, applications, data and large-scale
-                        organizational systems.
-                    </p>
+    padding: 15px 22px;
 
-                </div>
+    border-radius: 12px;
 
-            </div>
+    font-weight: bold;
 
+    cursor: pointer;
 
-            <div class="platform-grid enterprise-grid">
+    transition: .3s;
+}
 
-                <article class="platform-card">
+.start-btn span {
+    margin-left: 15px;
+}
 
-                    <div class="card-number">01</div>
+.start-btn:hover,
+.restart-btn:hover {
+    transform: translateY(-4px);
 
-                    <div class="card-icon enterprise-icon">
-                        ☁
-                    </div>
+    box-shadow:
+        0 12px 30px rgba(101,231,255,.2);
+}
 
-                    <h3>Microsoft Azure</h3>
 
-                    <p>
-                        Cloud computing platform providing services
-                        for applications, databases and businesses.
-                    </p>
+/* ===============================
+   HERO VISUAL
+================================ */
 
-                    <div class="tags">
-                        <span>Cloud</span>
-                        <span>Microsoft</span>
-                    </div>
+.hero-visual {
+    min-height: 450px;
 
-                </article>
+    display: grid;
 
+    place-items: center;
 
-                <article class="platform-card">
+    position: relative;
+}
 
-                    <div class="card-number">02</div>
+.center-device {
+    width: 230px;
+    height: 430px;
 
-                    <div class="card-icon enterprise-icon">
-                        ☁
-                    </div>
+    border: 7px solid #30384a;
 
-                    <h3>Amazon Web Services</h3>
+    border-radius: 35px;
 
-                    <p>
-                        Cloud platform offering computing, storage,
-                        databases and many enterprise services.
-                    </p>
+    padding: 10px;
 
-                    <div class="tags">
-                        <span>AWS</span>
-                        <span>Cloud</span>
-                    </div>
+    background: #111725;
 
-                </article>
+    transform: rotate(8deg);
 
+    box-shadow:
+        0 0 80px rgba(101,231,255,.15);
+}
 
-                <article class="platform-card">
+.screen {
+    width: 100%;
+    height: 100%;
 
-                    <div class="card-number">03</div>
+    border-radius: 25px;
 
-                    <div class="card-icon enterprise-icon">
-                        ◉
-                    </div>
+    background:
+        radial-gradient(circle at 50% 30%, #204c67, transparent 35%),
+        linear-gradient(150deg, #101a31, #27143e);
 
-                    <h3>Oracle Cloud</h3>
+    display: flex;
 
-                    <p>
-                        Enterprise cloud platform supporting databases,
-                        applications and business infrastructure.
-                    </p>
+    flex-direction: column;
 
-                    <div class="tags">
-                        <span>Oracle</span>
-                        <span>Database</span>
-                    </div>
+    align-items: center;
 
-                </article>
+    justify-content: center;
 
+    gap: 10px;
+}
 
-                <article class="platform-card">
+.screen-icon {
+    font-size: 50px;
 
-                    <div class="card-number">04</div>
+    color: #65e7ff;
 
-                    <div class="card-icon enterprise-icon">
-                        S
-                    </div>
+    animation: pulse 2s infinite;
+}
 
-                    <h3>SAP</h3>
+.screen small {
+    color: #8992a8;
+}
 
-                    <p>
-                        Enterprise software platform used for finance,
-                        supply chain, human resources and operations.
-                    </p>
+@keyframes pulse {
 
-                    <div class="tags">
-                        <span>ERP</span>
-                        <span>Business</span>
-                    </div>
+    50% {
+        transform: scale(1.15);
+    }
 
-                </article>
+}
 
+.orbit {
+    position: absolute;
 
-                <!-- 5TH ENTERPRISE EXAMPLE -->
-                <article class="platform-card">
+    border: 1px solid rgba(101,231,255,.25);
 
-                    <div class="card-number">05</div>
+    border-radius: 50%;
 
-                    <div class="card-icon enterprise-icon">
-                        IBM
-                    </div>
+    animation: spin 15s linear infinite;
+}
 
-                    <h3>IBM Cloud</h3>
+.orbit1 {
+    width: 420px;
+    height: 420px;
+}
 
-                    <p>
-                        Enterprise cloud platform providing infrastructure,
-                        AI, data and application services for organizations.
-                    </p>
+.orbit2 {
+    width: 520px;
+    height: 260px;
 
-                    <div class="tags">
-                        <span>IBM</span>
-                        <span>Cloud</span>
-                    </div>
+    transform: rotate(60deg);
+}
 
-                </article>
+@keyframes spin {
 
-            </div>
+    to {
+        transform: rotate(360deg);
+    }
 
-        </section>
+}
 
 
-        <!-- COMPARISON -->
-        <section class="page" id="comparison">
+/* ===============================
+   SECTION HEADER
+================================ */
 
-            <div class="section-header">
+.section-header {
+    max-width: 1200px;
 
-                <div>
-                    <span class="section-number">03</span>
+    margin: 0 auto 40px;
+}
 
-                    <h2>
-                        PLATFORM
-                        <span>COMPARISON</span>
-                    </h2>
+.section-number {
+    color: #65e7ff;
 
-                    <p>
-                        Mobile and enterprise platforms serve different
-                        purposes but both support modern technology.
-                    </p>
-                </div>
+    font-size: 13px;
 
-            </div>
+    letter-spacing: 3px;
+}
 
+.section-header h2 {
+    font-size: clamp(35px, 5vw, 60px);
 
-            <div class="comparison">
+    margin: 10px 0;
 
-                <div class="compare-card mobile-compare">
+    letter-spacing: -2px;
+}
 
-                    <div class="compare-icon">
-                        📱
-                    </div>
+.section-header p {
+    max-width: 700px;
 
-                    <h3>Mobile Platforms</h3>
+    color: #8992a8;
 
-                    <ul>
-                        <li>Designed for mobile devices</li>
-                        <li>User-focused experience</li>
-                        <li>Touch-based interfaces</li>
-                        <li>Mobile applications</li>
-                        <li>Portable and personal</li>
-                    </ul>
+    line-height: 1.7;
+}
 
-                </div>
 
+/* ===============================
+   CARDS
+================================ */
 
-                <div class="vs">
-                    VS
-                </div>
+.platform-grid {
+    max-width: 1200px;
 
+    margin: auto;
 
-                <div class="compare-card enterprise-compare">
+    display: grid;
 
-                    <div class="compare-icon">
-                        🏢
-                    </div>
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
-                    <h3>Enterprise Platforms</h3>
+    gap: 18px;
+}
 
-                    <ul>
-                        <li>Designed for organizations</li>
-                        <li>Business-focused systems</li>
-                        <li>Large-scale infrastructure</li>
-                        <li>Data and application management</li>
-                        <li>Supports many users</li>
-                    </ul>
+.platform-card {
+    min-width: 0;
 
-                </div>
+    padding: 25px;
 
-            </div>
+    border-radius: 20px;
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
 
-            <div class="info-box">
+    border: 1px solid rgba(255,255,255,.08);
 
-                <span>💡</span>
+    position: relative;
 
-                <p>
-                    <strong>Key Idea:</strong>
-                    Mobile platforms focus on personal and portable
-                    computing, while enterprise platforms focus on
-                    organizational systems, scalability and business
-                    operations.
-                </p>
+    overflow: hidden;
 
-            </div>
+    transition: .4s;
+}
 
-        </section>
+.platform-card::before {
+    content: "";
 
+    position: absolute;
 
-        <!-- SUMMARY -->
-        <section class="page" id="summary">
+    width: 120px;
+    height: 120px;
 
-            <div class="summary-container">
+    background: #65e7ff;
 
-                <div class="summary-icon">
-                    ✓
-                </div>
+    filter: blur(80px);
 
-                <span class="section-number">04</span>
+    opacity: 0;
 
-                <h2>
-                    TECHNOLOGY
-                    <span>CONNECTS</span>
-                </h2>
+    right: -30px;
+    top: -30px;
 
-                <p>
-                    Mobile and enterprise platforms are essential parts
-                    of today's digital world.
-                </p>
+    transition: .4s;
+}
 
+.platform-card:hover {
+    transform: translateY(-10px);
 
-                <div class="summary-grid">
+    border-color: rgba(101,231,255,.35);
 
-                    <div>
-                        <strong>Mobile</strong>
-                        <span>Personal Technology</span>
-                    </div>
+    background:
+        linear-gradient(
+            145deg,
+            rgba(101,231,255,.1),
+            rgba(255,255,255,.025)
+        );
+}
 
-                    <div>
-                        <strong>Enterprise</strong>
-                        <span>Business Technology</span>
-                    </div>
+.platform-card:hover::before {
+    opacity: .2;
+}
 
-                    <div>
-                        <strong>Future</strong>
-                        <span>Connected Ecosystems</span>
-                    </div>
+.card-number {
+    position: absolute;
 
-                </div>
+    right: 18px;
+    top: 15px;
 
+    color: #4d566c;
 
-                <button class="restart-btn" data-go="home">
-                    ↻ RESTART PRESENTATION
-                </button>
+    font-size: 12px;
+}
 
-            </div>
+.card-icon {
+    width: 55px;
+    height: 55px;
 
-        </section>
+    display: grid;
+    place-items: center;
 
-    </main>
+    border-radius: 16px;
 
+    margin-bottom: 20px;
 
-    <!-- PAGE POPUP -->
-    <div class="transition-overlay" id="transitionOverlay">
+    font-size: 27px;
 
-        <div class="transition-box">
+    background: rgba(101,231,255,.1);
 
-            <div class="loading-circle"></div>
+    color: #65e7ff;
+}
 
-            <h3 id="transitionTitle">
-                Loading...
-            </h3>
+.card-icon.apple {
+    font-size: 30px;
+}
 
-            <p>
-                Preparing presentation
-            </p>
+.card-icon.kaios {
+    font-weight: bold;
+}
 
-        </div>
+.enterprise-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
 
-    </div>
+.platform-card h3 {
+    font-size: 20px;
 
+    margin-bottom: 12px;
+}
 
-    <footer>
+.platform-card p {
+    color: #8992a8;
 
-        <span>PLATFORMVERSE</span>
+    font-size: 14px;
 
-        <span>
-            Mobile & Enterprise Platforms
-        </span>
+    line-height: 1.6;
 
-    </footer>
+    min-height: 90px;
+}
 
+.tags {
+    display: flex;
 
-    <script src="script.js"></script>
+    flex-wrap: wrap;
 
-</body>
-</html>
+    gap: 6px;
+
+    margin-top: 18px;
+}
+
+.tags span {
+    font-size: 10px;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    color: #65e7ff;
+
+    background: rgba(101,231,255,.08);
+}
+
+
+/* ===============================
+   ENTERPRISE GRID
+================================ */
+
+.enterprise-grid {
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+}
+
+
+/* ===============================
+   COMPARISON
+================================ */
+
+.comparison {
+    max-width: 1000px;
+
+    margin: 50px auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 80px 1fr;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.compare-card {
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.compare-icon {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.compare-card h3 {
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.compare-card ul {
+    list-style: none;
+}
+
+.compare-card li {
+    color: #9ba4b8;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.compare-card li::before {
+    content: "✓";
+
+    color: #65e7ff;
+
+    margin-right: 10px;
+}
+
+.vs {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #65e7ff,
+        #8d6cff
+    );
+
+    color: #071018;
+
+    font-weight: bold;
+}
+
+.info-box {
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 20px;
+
+    display: flex;
+
+    gap: 15px;
+
+    border-radius: 15px;
+
+    background: rgba(101,231,255,.06);
+
+    border: 1px solid rgba(101,231,255,.15);
+}
+
+.info-box span {
+    font-size: 25px;
+}
+
+.info-box p {
+    color: #aab2c2;
+
+    line-height: 1.6;
+}
+
+
+/* ===============================
+   SUMMARY
+================================ */
+
+.summary-container {
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding-top: 40px;
+}
+
+.summary-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: auto auto 25px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(101,231,255,.1);
+
+    color: #65e7ff;
+
+    font-size: 35px;
+}
+
+.summary-container h2 {
+    font-size: clamp(38px, 6vw, 65px);
+
+    margin: 15px 0;
+}
+
+.summary-container > p {
+    color: #8992a8;
+
+    margin-bottom: 40px;
+}
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 40px;
+}
+
+.summary-grid div {
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.07);
+}
+
+.summary-grid strong,
+.summary-grid span {
+    display: block;
+}
+
+.summary-grid strong {
+    color: #65e7ff;
+
+    margin-bottom: 7px;
+}
+
+.summary-grid span {
+    color: #8992a8;
+
+    font-size: 13px;
+}
+
+
+/* ===============================
+   POPUP
+================================ */
+
+.transition-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(3,5,12,.85);
+
+    backdrop-filter: blur(15px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 999;
+}
+
+.transition-overlay.show {
+    display: flex;
+}
+
+.transition-box {
+    width: min(90%, 350px);
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background: #111725;
+
+    border: 1px solid rgba(101,231,255,.2);
+
+    animation: popup .4s ease;
+}
+
+@keyframes popup {
+
+    from {
+        transform: scale(.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+.loading-circle {
+    width: 45px;
+    height: 45px;
+
+    margin: auto auto 20px;
+
+    border-radius: 50%;
+
+    border: 3px solid #273148;
+
+    border-top-color: #65e7ff;
+
+    animation: spinLoading .8s linear infinite;
+}
+
+@keyframes spinLoading {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.transition-box h3 {
+    margin-bottom: 7px;
+}
+
+.transition-box p {
+    color: #8992a8;
+
+    font-size: 13px;
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+    min-height: 50px;
+
+    padding: 15px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #5f687c;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    border-top: 1px solid rgba(255,255,255,.06);
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1100px) {
+
+    .platform-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .enterprise-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 14px;
+    }
+
+
+    /* HEADER */
+
+    .topbar {
+        min-height: 65px;
+
+        padding: 10px 15px;
+    }
+
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .logo h1 {
+        font-size: 14px;
+    }
+
+    .logo small {
+        font-size: 7px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+
+        left: 10px;
+        right: 10px;
+
+        top: 70px;
+
+        padding: 10px;
+
+        display: none;
+
+        flex-direction: column;
+
+        background: rgba(13,17,29,.98);
+
+        border: 1px solid rgba(255,255,255,.1);
+
+        border-radius: 15px;
+
+        box-shadow:
+            0 20px 50px rgba(0,0,0,.5);
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    .nav-btn {
+        width: 100%;
+
+        min-height: 48px;
+
+        justify-content: flex-start;
+
+        padding: 12px 15px;
+
+        font-size: 14px;
+    }
+
+    .nav-btn span {
+        width: 25px;
+        text-align: center;
+    }
+
+
+    /* PAGE */
+
+    .page {
+        min-height: calc(100vh - 115px);
+
+        padding:
+            40px
+            15px
+            60px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 45px;
+
+        align-items: stretch;
+
+        text-align: center;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .badge {
+        font-size: 9px;
+
+        margin-bottom: 18px;
+    }
+
+    .hero h2 {
+        font-size: clamp(36px, 12vw, 55px);
+
+        line-height: .98;
+
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        margin: 0 auto 25px;
+    }
+
+    .start-btn {
+        width: 100%;
+
+        min-height: 52px;
+
+        font-size: 12px;
+    }
+
+
+    /* MOBILE VISUAL */
+
+    .hero-visual {
+        min-height: 300px;
+
+        width: 100%;
+
+        overflow: hidden;
+    }
+
+    .center-device {
+        width: 145px;
+        height: 270px;
+
+        border-width: 5px;
+
+        border-radius: 25px;
+    }
+
+    .screen {
+        border-radius: 18px;
+    }
+
+    .screen-icon {
+        font-size: 35px;
+    }
+
+    .screen strong {
+        font-size: 12px;
+    }
+
+    .screen small {
+        font-size: 8px;
+    }
+
+    .orbit1 {
+        width: 270px;
+        height: 270px;
+    }
+
+    .orbit2 {
+        width: 330px;
+        height: 170px;
+    }
+
+
+    /* SECTION */
+
+    .section-header {
+        margin-bottom: 30px;
+    }
+
+    .section-header h2 {
+        font-size: clamp(32px, 10vw, 45px);
+
+        line-height: 1;
+    }
+
+    .section-header p {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    /* CARDS */
+
+    .platform-grid,
+    .enterprise-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .platform-card {
+        padding: 22px;
+
+        border-radius: 17px;
+    }
+
+    .platform-card h3 {
+        font-size: 19px;
+    }
+
+    .platform-card p {
+        min-height: auto;
+
+        font-size: 13px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+
+        margin-bottom: 15px;
+    }
+
+
+    /* COMPARISON */
+
+    .comparison {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        margin-top: 30px;
+    }
+
+    .compare-card {
+        padding: 22px;
+
+        border-radius: 18px;
+    }
+
+    .compare-card h3 {
+        font-size: 21px;
+    }
+
+    .compare-card li {
+        font-size: 13px;
+    }
+
+    .vs {
+        width: 45px;
+        height: 45px;
+
+        margin: auto;
+    }
+
+    .info-box {
+        margin-top: 25px;
+
+        padding: 15px;
+
+        align-items: flex-start;
+    }
+
+    .info-box p {
+        font-size: 12px;
+    }
+
+
+    /* SUMMARY */
+
+    .summary-container {
+        padding-top: 20px;
+    }
+
+    .summary-icon {
+        width: 65px;
+        height: 65px;
+
+        font-size: 28px;
+    }
+
+    .summary-container h2 {
+        font-size: clamp(36px, 11vw, 50px);
+
+        line-height: 1;
+    }
+
+    .summary-container > p {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .summary-grid div {
+        padding: 15px;
+    }
+
+    .restart-btn {
+        width: 100%;
+
+        min-height: 50px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        text-align: center;
+
+        font-size: 8px;
+    }
+
+}
+
+
+/* ==================================================
+   VERY SMALL PHONES
+================================================== */
+
+@media (max-width: 380px) {
+
+    .page {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .hero-visual {
+        min-height: 260px;
+    }
+
+    .center-device {
+        width: 125px;
+        height: 235px;
+    }
+
+    .orbit1 {
+        width: 230px;
+        height: 230px;
+    }
+
+    .orbit2 {
+        width: 280px;
+        height: 140px;
+    }
+
+    .platform-card {
+        padding: 18px;
+    }
+
+}
